@@ -1,0 +1,19 @@
+{
+    "name": "peakhour-io/peakhour-api",
+    "description": "Idiomatic PHP client for https://www.peakhour.io/api/explore/",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "PeakhourIo\\PeakhourApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gabriel Damour",
+            "email": "gabriel.damour@carsguide.com.au"
+        }
+    ]
+}
