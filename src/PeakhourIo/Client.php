@@ -6,22 +6,29 @@ use PeakhourIo\Namespaces\DomainsNamespace;
 
 class Client
 {
-    /**
-     * @var DomainsNamespace
-     */
-    protected $domains;
+    protected array $connectionParams = [];
 
     protected $baseUri;
+
+    protected ?DomainsNamespace $domains = null;
 
     public function __construct($params = [])
     {
         $this->baseUri = $params['base_uri'];
+    }
 
-        $this->domains = new DomainsNamespace($this->baseUri);
+    public function setAuthApiKey(string $apiKey)
+    {
+        $this->connectionParams['api_key'] = $apiKey;
+
+        return $this;
     }
 
     public function domains(): DomainsNamespace
     {
+        if (is_null($this->domains)) {
+            $this->domains = new DomainsNamespace($this->connectionParams, $this->baseUri);
+        }
         return $this->domains;
     }
 

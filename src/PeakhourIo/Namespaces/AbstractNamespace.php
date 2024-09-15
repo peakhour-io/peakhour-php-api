@@ -9,8 +9,11 @@ abstract class AbstractNamespace
 {
     protected $baseUri;
 
-    public function __construct(string $baseUri)
+    protected array $connectionParams;
+
+    public function __construct(array $connectionParams, string $baseUri)
     {
+        $this->connectionParams = $connectionParams;
         $this->baseUri = $baseUri;
     }
 
@@ -23,7 +26,16 @@ abstract class AbstractNamespace
         $method = $this->extractArgument($params, 'method');
         $uri = $this->extractArgument($params, 'endpoint');
 
-        $response = $client->request($method, $uri);
+        $response = $client->request($method, $uri, [
+            'headers' => [
+                'Accept' => 'application/json',
+                'Authorization' => 'Bearer ' . $this->connectionParams['api_key'],
+                //'Content-Type' => 'application/json',
+                //'Peakhour-Request-Url' => $request_url,
+                //'Peakhour-Referrer-Url' => $ref,
+                //'Peakhour-Php-Ver' => PHP_VERSION
+            ],
+        ]);
 
         return $response;
     }
