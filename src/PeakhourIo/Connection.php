@@ -10,6 +10,11 @@ class Connection
 
     protected string $baseUri;
 
+    /**
+     * @var string
+     */
+    private $OSVersion = null;
+
     public function __construct(string $baseUri)
     {
         $this->baseUri = $baseUri;
