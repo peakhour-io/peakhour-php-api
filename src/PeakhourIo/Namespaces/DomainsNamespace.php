@@ -31,7 +31,7 @@ class DomainsNamespace extends AbstractNamespace
             throw new \Exception('currentDomain not set, cannot complete request');
         }
         $response = $this->performRequest([
-            'endpoint' => $this->currentDomain . '/services/rp/cdn/resources',
+            'endpoint' => "/api/v1/domains/{$this->currentDomain}/services/rp/cdn/resources",
             'method' => 'DELETE',
             //'params' => [],
             //'headers' => ['Bla-bla' => 'value'],
