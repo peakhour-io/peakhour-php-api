@@ -37,7 +37,7 @@ class Client
             $this->domains = new DomainsNamespace($this->connection);
         }
         if ($currentDomain) {
-            $this->setDomain($currentDomain);
+            $this->domains->setDomain($currentDomain);
         }
         return $this->domains;
     }
@@ -50,7 +50,7 @@ class Client
      */
     public function setDomain(string $domain): Client
     {
-        $this->domains->setDomain($domain);
+        $this->domains($domain);
         return $this;
     }
 
