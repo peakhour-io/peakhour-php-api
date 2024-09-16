@@ -2,6 +2,8 @@
 
 namespace PeakhourIo\Namespaces;
 
+use Psr\Http\Message\ResponseInterface;
+
 class DomainsNamespace extends AbstractNamespace
 {
     protected ?string $currentDomain = null;
@@ -21,11 +23,12 @@ class DomainsNamespace extends AbstractNamespace
      * Request to flush resources from CDN. If no paths are given, request to flush all resources.
      * -> DELETE /api/v1/domains/{domain}/services/rp/cdn/resources
      *
-     * @param $paths
-     * @return \Psr\Http\Message\ResponseInterface
+     * @param array $paths
+     * @param bool $soft
+     * @return ResponseInterface
      * @throws \Exception
      */
-    public function flushResources(array $paths = [])
+    public function flushResources(array $paths = [], bool $soft = false): ResponseInterface
     {
         if (is_null($this->currentDomain)) {
             throw new \Exception('currentDomain not set, cannot complete request');
@@ -33,11 +36,9 @@ class DomainsNamespace extends AbstractNamespace
         $response = $this->performRequest([
             'endpoint' => "/api/v1/domains/{$this->currentDomain}/services/rp/cdn/resources",
             'method' => 'DELETE',
-            //'params' => [],
-            //'headers' => ['Bla-bla' => 'value'],
             'body' => [
                 'paths' => $paths,
-                'soft' => null,
+                'soft' => $soft,
             ],
         ]);
 
