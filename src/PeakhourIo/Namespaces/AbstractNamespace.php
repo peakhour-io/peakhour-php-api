@@ -2,7 +2,6 @@
 
 namespace PeakhourIo\Namespaces;
 
-use GuzzleHttp\Client;
 use PeakhourIo\Connection;
 use Psr\Http\Message\ResponseInterface;
 
