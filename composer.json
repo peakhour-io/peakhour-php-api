@@ -3,7 +3,7 @@
     "description": "Idiomatic PHP client for https://www.peakhour.io/api/explore/",
     "type": "library",
     "require": {
-        "guzzlehttp/guzzle": "^7.0"
+        "guzzlehttp/guzzle": "^6.0"
     },
     "autoload": {
         "psr-4": {
