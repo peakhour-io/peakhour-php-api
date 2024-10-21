@@ -7,7 +7,7 @@ use Psr\Http\Message\ResponseInterface;
 
 abstract class AbstractNamespace
 {
-    protected Connection $connection;
+    protected $connection;
 
     public function __construct(Connection $connection)
     {

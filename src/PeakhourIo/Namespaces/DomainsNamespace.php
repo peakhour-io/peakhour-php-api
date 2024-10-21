@@ -6,7 +6,7 @@ use Psr\Http\Message\ResponseInterface;
 
 class DomainsNamespace extends AbstractNamespace
 {
-    protected ?string $currentDomain = null;
+    protected $currentDomain = null;
 
     // PLACEHOLDERS:
     // GET /api/v1/domains

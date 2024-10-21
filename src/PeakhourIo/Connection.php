@@ -6,9 +6,9 @@ use Psr\Http\Message\ResponseInterface;
 
 class Connection
 {
-    protected array $params = [];
+    protected $params = [];
 
-    protected string $baseUri;
+    protected $baseUri;
 
     /**
      * @var string

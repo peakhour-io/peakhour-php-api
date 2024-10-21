@@ -8,9 +8,9 @@ class Client
 {
     public const VERSION = '0.1.0';
 
-    protected Connection $connection;
+    protected $connection;
 
-    protected ?DomainsNamespace $domains = null;
+    protected $domains = null;
 
     public function __construct($params = [])
     {
