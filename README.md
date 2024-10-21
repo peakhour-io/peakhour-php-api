@@ -16,7 +16,7 @@ $client = (new \PeakhourIo\Client(['base_uri' => 'https://www.peakhour.io']))
     ->setDomain('www.example.com');
 $response = $client->domains()->flushResources([
     '/about',
-    '/blog/1337
+    '/blog/1337'
 ]);
 
 $code = $response->getStatusCode();
